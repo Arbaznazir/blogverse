@@ -1,0 +1,26 @@
+<%= form_with model: @post, local: true do |f| %>
+  <% if @post.errors.any? %>
+    <div style="background:#fff8f8;border:1px solid #f3caca;padding:10px;border-radius:6px;margin-bottom:12px;">
+      <strong><%= pluralize(@post.errors.count, "error") %> stopped this post:</strong>
+      <ul>
+        <% @post.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, required: true, autofocus: true, placeholder: "Catchy headline" %>
+  </p>
+
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body, required: true, rows: 10, placeholder: "Say something worth reading..." %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

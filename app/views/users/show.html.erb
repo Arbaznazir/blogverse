@@ -1,0 +1,14 @@
+<!-- app/views/users/show.html.erb -->
+<h1><%= @user.name %></h1>
+<p><strong>Email:</strong> <%= @user.email %></p>
+
+<% if owner?(@user) %>
+  <p>
+    <%= link_to "Edit profile", edit_user_path(@user) %> |
+    <%= button_to "Delete account", @user,
+          method: :delete,
+          form: { data: { turbo_confirm: "Really delete your account? This also deletes your posts." } } %>
+  </p>
+<% end %>
+
+<p><%= link_to "All Posts", posts_path %></p>

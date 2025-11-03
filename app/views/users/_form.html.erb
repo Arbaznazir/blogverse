@@ -1,0 +1,34 @@
+<%= form_with model: @user, local: true do |f| %>
+  <% if @user.errors.any? %>
+    <div style="background:#fff8f8;border:1px solid #f3caca;padding:10px;border-radius:6px;margin-bottom:12px;">
+      <strong><%= pluralize(@user.errors.count, "error") %> prevented saving:</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true, autofocus: true, placeholder: "Your name" %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, required: true, placeholder: "you@example.com" %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, required: true %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, required: true %>
+  </p>
+
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>Log In</h1>
+
+<%= form_with url: session_path, method: :post, local: true do |f| %>
+  <p>
+    <%= label_tag :email %><br>
+    <%= email_field_tag :email, params[:email], autofocus: true %>
+  </p>
+
+  <p>
+    <%= label_tag :password %><br>
+    <%= password_field_tag :password %>
+  </p>
+
+  <p>
+    <label>
+      <%= check_box_tag :remember_me, "1" %>
+      Remember me
+    </label>
+  </p>
+
+  <p>
+    <%= submit_tag "Log In" %>
+  </p>
+<% end %>
+
+<p>
+  New here? <%= link_to "Sign up", new_user_path %>
+</p>
+
+<p>
+  <%= link_to "Back to posts", posts_path %>
+</p>

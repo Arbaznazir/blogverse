@@ -1,0 +1,12 @@
+/* app/assets/stylesheets/site.css */
+body {
+  /* Testing style to confirm it's loaded */
+  border-top: 4px solid #6f42c1;
+}
+
+.card {
+  border-radius: 10px;
+}
+.card-title {
+  font-weight: bold;
+}
